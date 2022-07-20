@@ -1,4 +1,4 @@
-const Controller = require('@clap-core/mongoose-lite/app/controller/model');
+const Controller = require('@clapjs/core-lite/app/controller/model');
 class ClapModel extends Controller {
 
 }

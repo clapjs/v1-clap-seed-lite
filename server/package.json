@@ -5,10 +5,10 @@
   "private": true,
   "egg": {
     "declarations": true,
-    "framework": "@clap/core-lite"
+    "framework": "@clapjs/core-lite"
   },
   "dependencies": {
-    "@clap/core-lite": "file:../../v1.clap.core.lite",
+    "@clapjs/core-lite": "file:../../v1-clap-core-lite",
     "egg": "^2",
     "egg-scripts": "^2"
   },
