@@ -12,6 +12,7 @@ module.exports = appInfo => {
           pass: 'clap',
           useUnifiedTopology: true,
         },
+        framework: 'core-lite',
       },
     },
   };
