@@ -5,7 +5,6 @@
 export default {
     host:'http://127.0.0.1:7001',
     platform:'web',
-    layout:'left',
     theme: '#1890FF',
     multiTab:true,
     lang:'zh-CN',

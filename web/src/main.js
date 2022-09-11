@@ -1,20 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from "@/lib/axios";
+
+import ConfigAxios from "@/config/config.axios";
+import ConfigDefault from "@/config/config.default";
+import ConfigMenu from "@/config/config.menu";
+import ConfigUrl from "@/config/config.url";
+
 import ClapVueCoreLite from "@clapjs/vue-core-lite";
 
-Vue.use(ClapVueCoreLite,{axios})
-
-import configDefault from "@/config/config.default";
-import configUrl from "@/config/config.url";
+Vue.use(ClapVueCoreLite,{...ConfigDefault,axios:ConfigAxios,url:ConfigUrl,menu:ConfigMenu})
 
 import i18n from "@/lib/i18n";
 import router from "@/lib/router";
 import store from "@/lib/store";
 import bootstrap from './bootstrap'
-
-Vue.prototype.$config=configDefault;
-Vue.prototype.$config.url=configUrl;
 
 Vue.config.productionTip = false;
 

@@ -3,13 +3,11 @@ import config from '@/config/config.default'
 import store from '@/lib/store'
 
 export default function Initializer() {
-    store.dispatch('ToggleLayout', Vue.ls.get('LAYOUT', config.layout))
     store.dispatch('ToggleTheme', Vue.ls.get('THEME', config.theme))
     store.dispatch('ToggleLang', Vue.ls.get('LANG', config.lang))
     store.dispatch('ToggleMultiTab', Vue.ls.get('MULTI_TAB', config.multiTab))
 
-
-    const session=Vue.prototype.$global.platform==='web'?Vue.$cookies:Vue.ls;
+    const session=process.env.IS_ELECTRON?Vue.ls:Vue.$cookies;
 
     if(session.get('ACCESS_TOKEN')!==null){
         store.dispatch('ToggleMenu', Vue.ls.get('MENU', {key: 'dash', title: '首页', routeName: 'dash', controlType: 'Group', idOrgan: '', organs: [], closable: false}));

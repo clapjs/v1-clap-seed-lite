@@ -7,7 +7,7 @@ router.addRoute('index',{path: '/dash', name: 'dash', component: {template: `<a-
 router.beforeEach( (to, from, next) => {
     NProgress.start();
     const checkLogin=()=>{
-        return (Vue.prototype.$global.platform==='web'?Vue.$cookies:Vue.ls).get('ACCESS_TOKEN')!==null
+        return (process.env.IS_ELECTRON?Vue.ls:Vue.$cookies).get('ACCESS_TOKEN')!==null
     }
     if(!checkLogin()&&['login','register'].indexOf(to.name)<0){
         router.replace({name: 'login'})
