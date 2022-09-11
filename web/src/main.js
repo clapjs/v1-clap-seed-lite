@@ -1,32 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store/'
-import i18n from './i18n'
-import moment from 'moment'
+import axios from "@/lib/axios";
+import ClapVueCoreLite from "@clapjs/vue-core-lite";
 
-import './core/uses'
-import bootstrap from './core/bootstrap'
-import config from './config/config.default'
-import http from './config/config.http'
-import url from './config/config.url'
+Vue.use(ClapVueCoreLite,{axios})
 
-import * as helper from './utils/helper'
+import configDefault from "@/config/config.default";
+import configUrl from "@/config/config.url";
 
-Vue.prototype.$config = config;
-Vue.prototype.$http = http;
-Vue.prototype.$url = url;
-Vue.prototype.$moment = moment;
-Vue.prototype.$helper = helper;
-Vue.prototype.$electron=undefined;
-// Vue.prototype.$electron=require('electron');
+import i18n from "@/lib/i18n";
+import router from "@/lib/router";
+import store from "@/lib/store";
+import bootstrap from './bootstrap'
+
+Vue.prototype.$config=configDefault;
+Vue.prototype.$config.url=configUrl;
 
 Vue.config.productionTip = false;
 
-new Vue({
-    router,
-    store,
-    i18n,
-    created: bootstrap,
-    render: h => h(App),
-}).$mount('#app');
+new Vue({router, store, i18n, created: bootstrap, render: h => h(App)}).$mount('#app');
